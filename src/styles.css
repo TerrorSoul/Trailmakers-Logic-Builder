@@ -1,0 +1,249 @@
+/* src/styles.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 200px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  z-index: 1;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.block-item {
+  padding: 10px;
+  margin: 5px 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: grab;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.block-item:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Flow Container Styles */
+.flow-container {
+  flex-grow: 1;
+  height: 100%;
+  margin-right: 300px;
+  position: relative;
+}
+
+/* Settings Panel Styles */
+.settings-panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: white;
+  border-left: 1px solid #ddd;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+}
+
+.settings-panel h3 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+}
+
+.setting-group {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.setting-group h4 {
+  margin: 0 0 15px 0;
+  color: #666;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.setting-item:last-child {
+  margin-bottom: 0;
+}
+
+.setting-item label {
+  flex: 1;
+  margin-right: 15px;
+  color: #444;
+  font-size: 14px;
+}
+
+.setting-item input[type="number"],
+.setting-item input[type="text"],
+.setting-item select {
+  width: 100px;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.setting-item input[type="number"]:focus,
+.setting-item input[type="text"]:focus,
+.setting-item select:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.setting-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Node Styles */
+.logic-node {
+  padding: 15px;
+  border-radius: 6px;
+  background: white;
+  border: 2px solid #1a192b;
+  min-width: 150px;
+  min-height: 60px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.logic-node.selected {
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+}
+
+.logic-node-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logic-node-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.logic-node-settings {
+  display: flex;
+  gap: 8px;
+}
+
+.keybind {
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.keybind.green {
+  background: #4CAF50;
+  color: white;
+}
+
+.keybind.red {
+  background: #f44336;
+  color: white;
+}
+
+/* Handle Styles */
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background: #555;
+  border: 2px solid white;
+  transition: all 0.2s ease;
+}
+
+.react-flow__handle:hover {
+  background: #666;
+  transform: scale(1.2);
+}
+
+/* Edge Styles */
+.react-flow__edge-path {
+  stroke: #555;
+  stroke-width: 2;
+  transition: stroke 0.2s ease;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #4CAF50;
+  stroke-width: 3;
+}
+
+/* Controls Styles */
+.react-flow__controls {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 6px;
+}
+
+.react-flow__controls-button {
+  border: none !important;
+  background: white !important;
+  transition: background 0.2s ease;
+}
+
+.react-flow__controls-button:hover {
+  background: #f0f0f0 !important;
+}
+
+/* Background Styles */
+.react-flow__background {
+  background-color: #f8f9fa;
+}
+
+
+@keyframes flowAnimation {
+  from {
+      stroke-dashoffset: 10;
+  }
+  to {
+      stroke-dashoffset: 0;
+  }
+}
+
+.react-flow__edge-path {
+  stroke-dasharray: 5;
+  marker-end: url(#arrow);
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  animation: flowAnimation 1s linear infinite;
+}
